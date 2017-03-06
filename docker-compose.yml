@@ -13,4 +13,4 @@ services:
     #ports: 
     #- "9092:9090"
     network_mode: "host"
-    container_name: "invoke-aws-lambda-ioc-docker"
+    container_name: "invoke-flask-sprinboot"
