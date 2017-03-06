@@ -1,0 +1,16 @@
+version: '2'
+services:
+  web:
+    build: .
+    image: "akshay3030/python-processing-engine:dataframe"
+    ports: 
+    - "9091:5000"
+    container_name: "flask-python-engine-dataframe"
+  lambda:
+    build: .
+    image: "akshay3030/invoke-flask-sprinboot:latest"
+    #don't need ports option as network_mode=hosts will make this container's network namespace as hosts
+    #ports: 
+    #- "9092:9090"
+    network_mode: "host"
+    container_name: "invoke-aws-lambda-ioc-docker"
