@@ -2,6 +2,7 @@ package com.springboot.flask.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,6 +36,11 @@ public class InvokeFlaskController {
 	public String executeLambda(@RequestBody JsonNode modeldata,@RequestParam String modelname){
 		
 		return flaskService.processFlaskRequest(modeldata,modelname);
+	}
+	
+	@RequestMapping(value="/health",method=RequestMethod.GET)
+	public String health(){
+		return HttpStatus.OK.toString();
 	}
 
 }
